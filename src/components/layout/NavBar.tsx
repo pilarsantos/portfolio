@@ -11,9 +11,8 @@ import {
 } from "@mui/material";
 import type { Theme } from "@mui/material";
 import {
+  Link,
   useLocation,
-  useNavigate,
-  type NavigateOptions,
 } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -25,7 +24,6 @@ type AppPath = "/" | "/experience" | "/skills" | "/contact";
 
 export const NavBar = () => {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
   const { t } = useTranslation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -81,8 +79,9 @@ export const NavBar = () => {
                   return (
                     <ListItemButton
                       key={path}
+                      component={Link}
+                      to={path}
                       onClick={() => {
-                        navigate({ to: path as NavigateOptions["to"] });
                         setOpen(false);
                       }}
                       disableRipple
@@ -122,7 +121,8 @@ export const NavBar = () => {
             return (
               <Button
                 key={path}
-                onClick={() => navigate({ to: path as NavigateOptions["to"] })}
+                component={Link}
+                to={path}
                 disableRipple
                 sx={navButtonSx(isActive, "15px")}
               >

@@ -8,7 +8,7 @@ export const ButtonGroup = () => {
   return (
     <>
       <IconButton
-        href="https://www.linkedin.com/in/pilar-santos-69b890256"
+        href="https://www.linkedin.com/in/pilar-santos-ga/"
         target="_blank"
         rel="noopener noreferrer"
         sx={{
